@@ -1,0 +1,15 @@
+<div class="ui four stackable cards">
+  <div class="card" *ngFor="let dept of depts.data">
+    <a (click)="goToShow(dept)">
+      <div class="card-block">
+        <h3 class="card-title">
+          {{ dept.name }}
+        </h3>
+        <p>
+          <small>Last Updated: {{dept.created_at | date:'medium'}}</small>
+        </p>
+        <a class="btn btn-primary">View Dept</a>
+      </div>
+    </a>
+  </div>
+</div>

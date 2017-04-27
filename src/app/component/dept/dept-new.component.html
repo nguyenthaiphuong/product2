@@ -1,0 +1,28 @@
+<div class="jumbotron">
+  <h1 class="display-3">Create New Dept</h1>
+  <hr class="m-y-md">
+</div>
+<div class="row">
+  <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+    <form (ngSubmit)="createDept(dept); postForm.reset()" #postForm='ngForm'>
+      <div class="form-group">
+        <label for="dept-name">
+          <h3>Dept Title</h3>
+        </label>
+        <input type="text" class="form-control" id="title"
+          required
+          name="title"
+          placeholder="name"
+          #title='ngModel'
+          [(ngModel)]='dept.name'
+          >
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!postForm.form.valid" [hidden]="submitted">Dept Article</button>
+      <!--Stay hidden submitted -->
+      <div [hidden]="!submitted" class="alert alert-success"
+        role="alert"> Your post has been successfully created.
+        <a class="alert-link" routerLink="/depts">View all depts</a>
+      </div>
+    </form>
+  </div>
+</div>

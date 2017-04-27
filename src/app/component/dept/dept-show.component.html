@@ -1,0 +1,27 @@
+<div *ngIf="dept">
+  <h2>{{ dept.data.name }}</h2>
+  <p>{{ dept.data.id }}</p>
+  <button type="button" (click)="delete(dept)" class="btn btn-primary">Delete</button>
+  <button type="button" (click)="update(dept)" class="btn btn-primary">Edit</button>
+
+  <div class="row" [hidden]="!editBtnClicked">
+    <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+      <form #postForm='ngForm'>
+        <div class="form-group">
+          <label for="dept-name">
+            <h3>dept name
+            </h3>
+          </label>
+          <input type="text" class="form-control" id="title" placeholder="Enter name"
+          required name="title" #title='ngModel' [(ngModel)]='dept.name' >
+          <div [hidden]="title.valid ||   title.pristine"
+          class="alert alert-danger">
+            Title of the post is required
+          </div>
+        </div>
+        <button type="submit" (click)="update(dept); onUpdateClicked()" class="btn btn-primary" [disabled]="!postForm.form.valid">
+        Update Dept</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<p>
+  Displaying positions.
+</p>
+<table>
+  <thead>
+  <tr>
+    <th data-field="name">id</th>
+    <th data-field="name">name</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let position of positions.data'>
+      <td>{{ position.name }}</td>
+      <td>
+        <a [routerLink]="['/positions', position.id]">
+          Edit
+        </a>
+      </td>
+      <td>
+        <a (click)="deletePosition(position)" href="">
+          Delete
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="bottom: 45px; right: 24px;">
+  <a routerLink="/positions/new">
+    New
+  </a>
+</div>
